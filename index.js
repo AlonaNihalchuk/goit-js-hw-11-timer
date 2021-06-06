@@ -11,15 +11,16 @@ class CountdownTimer {
   }
   init() {
     const targetDate = this.targetDate;
-    this.intervalId = setInterval(() => {
-      const currentTime = Date.now();
-      const time = targetDate - currentTime;
-      const timeComponents = this.getTimeComponents(time);
-      this.onTick(timeComponents);
-    }, 1000);
+    const currentTime = Date.now();
+    const time = targetDate - currentTime;
+    const timeComponents = this.getTimeComponents(time);
+    this.onTick(timeComponents);
   }
   start() {
     this.init();
+    this.intervalId = setInterval(() => {
+      this.init();
+    }, 1000);
   }
   stop() {
     if (this.currentTime === this.targetDate) {
