@@ -19,7 +19,7 @@ class CountdownTimer {
     }, 1000);
   }
   start() {
-    init();
+    this.init();
   }
   stop() {
     if (this.currentTime === this.targetDate) {
