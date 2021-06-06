@@ -10,10 +10,6 @@ class CountdownTimer {
     this.init();
   }
   init() {
-    const timeComponents = this.getTimeComponents(0);
-    this.onTick(timeComponents);
-  }
-  start() {
     const targetDate = this.targetDate;
     this.intervalId = setInterval(() => {
       const currentTime = Date.now();
@@ -21,6 +17,9 @@ class CountdownTimer {
       const timeComponents = this.getTimeComponents(time);
       this.onTick(timeComponents);
     }, 1000);
+  }
+  start() {
+    init();
   }
   stop() {
     if (this.currentTime === this.targetDate) {
